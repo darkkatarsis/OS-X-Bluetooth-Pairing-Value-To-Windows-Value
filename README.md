@@ -18,7 +18,9 @@ Follow these steps to get your bluetooth device working.
 -  run this script/app
 -  save the link key/s somewhere you can reach from windows
 -  boot to windows
--  run regedit with admin rights
+-  download psexec from https://technet.microsoft.com/en-us/library/gg697102.aspx
+-  copy psexec to C:\Windows\System32\ 
+-  open CMD with admin rights run "psexec -s -i regedit" with admin rights
 -  go to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys\BD_ADDR
 -  edit the key of the device
 -  reboot
@@ -35,6 +37,9 @@ sudo defaults read /private/var/root/Library/Preferences/com.apple.bluetoothd.pl
 - parse the data with awk
 - display it in a window
 - export a bluetooth.reg file with all paired link keys, if desired
+
+### Alternative data
+```sudo defaults read /private/var/root/Library/Preferences/com.apple.Bluetoothd.plist LinkKeys```
 
 Here's an example link key. Instead of just typing that in you want to break it apart starting from the right, taking a pair of two characters at a time.
 
